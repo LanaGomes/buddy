@@ -1,10 +1,16 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import ExpenseSimulation from "./Components/ExpenseSimulation";
+import NavBar from "./Components/NavBar";
+import SummaryBalance from "./Components/SummaryBalance";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <div className="flex-col items-center">
+        <NavBar />
+      </div>
+    </>
+  );
 }
 
 export default App;
