@@ -12,7 +12,7 @@ export default {
       yellow: "#E7C028",
 
       white: {
-        almostWhite: "#F6EEEB",
+        almostWhite: "#F5F4F4",
         whistestWhite: "#FFFFFF",
         hotWhite: "#F6EEEB",
       },
