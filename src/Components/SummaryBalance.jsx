@@ -13,9 +13,9 @@ function SummaryBalance() {
   };
 
   return (
-    <div className="flex flex-col justify-center  ">
-      <main className=" flex justify-around text-2xl p-2 m-7 mx-14 items-center border-2 border-blue-2 rounded ">
-        <div className="flex justify-center w-1/2 cursor-pointer">
+    <div className="flex flex-col justify-center pb-8 pt-8  ">
+      <main className=" bg-white-whistestWhite flex justify-around text-2xl p-2  mb-5 mx-12 items-center border-2 border-blue-2 rounded ">
+        <div className="flex justify-center w-1/2 cursor-pointer ">
           <img
             className="h-10 opacity-60"
             src={calendarLogo}
@@ -32,7 +32,8 @@ function SummaryBalance() {
           showMonthYearPicker
         />
       </main>
-      <ResultCard />
+      <ResultCard totalCartao="R$1520" totalTipoGasto="Total Cartão" />
+      <ResultCard totalCartao="+ R$800" totalTipoGasto="Total Saldo Meta" />
     </div>
   );
 }
