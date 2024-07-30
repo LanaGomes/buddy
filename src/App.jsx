@@ -8,6 +8,7 @@ function App() {
     <>
       <div className="flex-col items-center">
         <NavBar />
+        <SummaryBalance />
       </div>
     </>
   );
