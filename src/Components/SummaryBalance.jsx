@@ -34,6 +34,13 @@ function SummaryBalance() {
       </main>
       <ResultCard totalCartao="R$1520" totalTipoGasto="Total Cartão" />
       <ResultCard totalCartao="+ R$800" totalTipoGasto="Total Saldo Meta" />
+
+      <a
+        className="text-yellow underline underline-offset-2 text-2xl"
+        href="https://www.youtube.com/"
+      >
+        Ver mais
+      </a>
     </div>
   );
 }
