@@ -3,8 +3,7 @@ import menuLogo from "../Images/menuSanduichLogo.png";
 
 function NavBar() {
   return (
-    <nav className="bg-white-hotWhite flex items-center justify-between sm:w-full p-3">
-      <img src={pigLogo} />
+    <nav className="flex items-center justify-end sm:w-full p-2 shadow-lg mb-10">
       <img src={menuLogo} />
     </nav>
   );

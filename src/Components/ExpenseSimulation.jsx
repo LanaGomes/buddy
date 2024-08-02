@@ -1,9 +1,11 @@
+import Button from "./Button";
+
 function ExpenseSimulation() {
   const gerarOpcoes = () => {
     let opcoes = [];
     for (let index = 1; index <= 100; index++) {
       opcoes.push(
-        <option key={index} value={index}>
+        <option className="text-blue-2" key={index} value={index}>
           {index}
         </option>
       );
@@ -13,34 +15,37 @@ function ExpenseSimulation() {
   };
 
   return (
-    <div className=" bg-blue-1 max-h-full">
-      <header className="text-2xl text-white-whistestWhite font-semibold py-2">
+    <div className=" bg-blue-1 max-h-full text-base py-1 ">
+      <header className="text-2xl text-white-whistestWhite font-semibold py-2 ">
         Simular (adição gasto)
       </header>
-      <form className="p-5 flex flex-col items-start">
-        <label className="w-full">
+      <form className="p- flex flex-col text-center">
+        <label className="w-full text-white-whistestWhite">
           Valor Total Gasto
-          <input className="m-3 p-1 rounded " required></input>
+          <input className="m-3 p-1 rounded w-1/2" required></input>
         </label>
-        <label className="w-full">
+        <label className="w-full text-white-whistestWhite">
           Valor Total Gasto
-          <input className="m-3 p-1 rounded" required></input>
+          <input className="m-3 p-1 rounded w-1/2 " required></input>
         </label>
-        <label className="w-full text-left">
-          Valor parcelado?
-          <input
-            className="p-1 ml-4 h-10 w-10 "
-            required
-            type="checkbox"
-          ></input>
-        </label>
-        <label className="w-full text-left m-1">
-          Quantidade de parcelas?
-          <select className="w-15 p-2 mx-3 rounded focus:outline-none sm:text-sm">
-            {gerarOpcoes()}
-          </select>
-        </label>
+        <div className="flex justify-around mt-2 ">
+          <label className="text-white-whistestWhite flex items-center ">
+            Valor parcelado?
+            <input
+              className="p-1 h-10 w-10 ml-2 "
+              required
+              type="checkbox"
+            ></input>
+          </label>
+          <label className="  text-white-whistestWhite ">
+            Quantidade de parcelas?
+            <select className="w-15 p-2 mx-3 rounded focus:outline-none sm:text-sm">
+              {gerarOpcoes()}
+            </select>
+          </label>
+        </div>
       </form>
+      <Button buttonText="Simular" />
     </div>
   );
 }

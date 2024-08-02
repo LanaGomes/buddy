@@ -1,9 +1,9 @@
 function ResultCard({ totalCartao, totalTipoGasto }) {
   return (
     <>
-      <div className="border-s-8 border-pink text-left px-3 pt-3 pb-1  mx-12 my-3 bg-white-whistestWhite">
+      <div className="border-s-8 border-x border-y border-darkgreen text-left p-3 my-1 w-1/2 bg-white-whistestWhite shadow-lg">
         <header className="text-4xl">{totalCartao}</header>
-        <label className="text-2xl text-pink">{totalTipoGasto}</label>
+        <label className="text-2xl text-darkgreen">{totalTipoGasto}</label>
       </div>
     </>
   );
