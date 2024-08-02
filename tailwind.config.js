@@ -4,12 +4,12 @@ export default {
   theme: {
     colors: {
       blue: {
-        1: "#3E495A",
+        1: "#224667",
         2: "#1A2437",
       },
 
-      pink: "#F48884",
-      yellow: "#E7C028",
+      darkgreen: "#3B7E7E",
+      radiantGreen: "#41EBAE",
 
       white: {
         almostWhite: "#F5F4F4",
