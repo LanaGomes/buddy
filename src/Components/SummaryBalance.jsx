@@ -3,10 +3,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import calendarLogo from "../Images/calendarLogo.png";
 import ResultCard from "./ResultCard";
+import { data } from "autoprefixer";
 
 function SummaryBalance() {
   const [startDate, setStartDate] = useState(new Date());
-  const [date, setDate] = useState(null);
+  const [apiInfo, setApiInfo] = useState(null);
   const datePickerRef = useRef(null);
 
   const handleIconClick = () => {
@@ -21,7 +22,7 @@ function SummaryBalance() {
       );
       const result = await response.json();
       console.log(result);
-      setDate(result);
+      setApiInfo(result);
     };
 
     fetchData();
@@ -42,14 +43,17 @@ function SummaryBalance() {
           ref={datePickerRef}
           className=" text-start font-bold  text-blue-2 w-11/12 "
           selected={startDate}
-          onChange={(date) => setStartDate(result)}
+          onChange={(date) => setStartDate(date)}
           dateFormat="MM/yyyy"
           showMonthYearPicker
         />
       </main>
       <section className="flex  gap-6 mx-4 mb-8">
-        <ResultCard totalCartao="R$1520" totalTipoGasto="Total Cartão" />
-        <ResultCard totalCartao="+ R$800" totalTipoGasto="Total Saldo Meta" />
+        <ResultCard saldoFinal={apiInfo.total} totalTipoGasto="Total Cartão" />
+        <ResultCard
+          saldoFinal={apiInfo.meta - apiInfo.total}
+          totalTipoGasto="Total Saldo Meta"
+        />
       </section>
 
       <a
