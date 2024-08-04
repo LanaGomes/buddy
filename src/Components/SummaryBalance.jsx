@@ -61,12 +61,12 @@ function SummaryBalance() {
         />
         <ResultCard
           saldoFinal={"R$" + apiInfo?.limite ?? "N/A"}
-          totalTipoGasto="Total Saldo Meta"
+          totalTipoGasto="Saldo Limite"
         />
       </section>
 
       <a
-        className="text-radiantGreen underline underline-offset-2 text-2xl mb-4"
+        className="text-blue-2 underline underline-offset-2 text-2xl mb-2"
         href="https://www.youtube.com/"
       >
         Ver mais

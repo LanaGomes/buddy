@@ -15,7 +15,7 @@ function ExpenseSimulation() {
   };
 
   return (
-    <div className=" bg-blue-1 max-h-full text-base py-1 ">
+    <div className=" bg-blue-1 max-h-full text-base p-2 ">
       <header className="text-2xl text-white-whistestWhite font-semibold py-2 ">
         Simular (adição gasto)
       </header>
@@ -28,8 +28,8 @@ function ExpenseSimulation() {
           Valor Total Gasto
           <input className="m-3 p-1 rounded w-1/2 " required></input>
         </label>
-        <div className="flex justify-around mt-2 ">
-          <label className="text-white-whistestWhite flex items-center ">
+        <div className="flex justify-around p-2 mt-2 ">
+          <label className="text-white-whistestWhite flex items-center  ">
             Valor parcelado?
             <input
               className="p-1 h-10 w-10 ml-2 "
@@ -37,7 +37,7 @@ function ExpenseSimulation() {
               type="checkbox"
             ></input>
           </label>
-          <label className="  text-white-whistestWhite ">
+          <label className="  text-white-whistestWhite flex items-center ">
             Quantidade de parcelas?
             <select className="w-15 p-2 mx-3 rounded focus:outline-none sm:text-sm">
               {gerarOpcoes()}
