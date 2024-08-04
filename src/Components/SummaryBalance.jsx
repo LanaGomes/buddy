@@ -3,7 +3,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import calendarLogo from "../Images/calendarLogo.png";
 import ResultCard from "./ResultCard";
-import { data } from "autoprefixer";
 
 function SummaryBalance() {
   const [startDate, setStartDate] = useState(new Date());
@@ -16,13 +15,20 @@ function SummaryBalance() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const formattedDate = startDate.toISOString().slice(0, 7);
-      const response = await fetch(
-        `https://buddy-backend-silk.vercel.app/custos?data=${formattedDate}`
-      );
-      const result = await response.json();
-      console.log(result);
-      setApiInfo(result);
+      try {
+        const formattedDate = startDate.toISOString().slice(0, 7);
+        const response = await fetch(
+          `https://buddy-backend-silk.vercel.app/custos?data=${formattedDate}`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const result = await response.json();
+        console.log(result);
+        setApiInfo(result);
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+      }
     };
 
     fetchData();
@@ -49,9 +55,12 @@ function SummaryBalance() {
         />
       </main>
       <section className="flex  gap-6 mx-4 mb-8">
-        <ResultCard saldoFinal={apiInfo.total} totalTipoGasto="Total Cartão" />
         <ResultCard
-          saldoFinal={apiInfo.meta - apiInfo.total}
+          saldoFinal={"R$" + apiInfo?.total_mensal ?? "N/A"}
+          totalTipoGasto="Total Cartão"
+        />
+        <ResultCard
+          saldoFinal={"R$" + apiInfo?.limite ?? "N/A"}
           totalTipoGasto="Total Saldo Meta"
         />
       </section>
