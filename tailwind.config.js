@@ -8,6 +8,8 @@ export default {
         2: "#1A2437",
       },
 
+      red: "#DD466A",
+
       darkgreen: "#3B7E7E",
       radiantGreen: "#41EBAE",
 
