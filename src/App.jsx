@@ -6,8 +6,7 @@ import SummaryBalance from "./Components/SummaryBalance";
 function App() {
   return (
     <>
-      <div className="flex-col items-center bg-white-almostWhite">
-        <NavBar />
+      <div className=" bg-white-almostWhite ">
         <SummaryBalance />
         <ExpenseSimulation />
       </div>
