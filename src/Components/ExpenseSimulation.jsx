@@ -1,6 +1,26 @@
+import { useState } from "react";
 import Button from "./Button";
+import ModalSimulation from "./ModalSimulation";
 
 function ExpenseSimulation() {
+  const [showModal, setShowModal] = useState(false);
+  const [resultMessage, setResultMessage] = useState("");
+
+  const handleButtonClick = () => {
+    setResultMessage("Resultado da simulação");
+    setShowModal(true);
+  };
+
+  const handleYes = () => {
+    setShowModal(false);
+    console.log("user clicou sim");
+  };
+
+  const handleNo = () => {
+    setShowModal(false);
+    console.log("user clicou em não");
+  };
+
   const gerarOpcoes = () => {
     let opcoes = [];
     for (let index = 1; index <= 100; index++) {
@@ -45,7 +65,14 @@ function ExpenseSimulation() {
           </label>
         </div>
       </form>
-      <Button buttonText="Simular" />
+      <Button buttonText="Simular" onClick={handleButtonClick} />
+      <ModalSimulation
+        show={showModal}
+        handleClose={() => setShowModal(false)}
+        handleYes={handleYes}
+        handleNo={handleNo}
+        resultMessage={resultMessage}
+      />
     </div>
   );
 }
