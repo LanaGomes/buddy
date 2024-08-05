@@ -3,7 +3,7 @@ function Button({ buttonText, onClick }) {
     <div>
       <button
         onClick={onClick}
-        className="text-xl py-4 px-9 mt-5 mb-2 bg-radiantGreen text-darkgreen  rounded-full"
+        className="text-xl py-5 px-9 mt-5 mb-2 bg-radiantGreen text-blue-2  rounded-full"
       >
         {buttonText}
       </button>
