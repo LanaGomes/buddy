@@ -4,35 +4,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import calendarLogo from "../Images/calendarLogo.png";
 import ResultCard from "./ResultCard";
 
-function SummaryBalance() {
-  const [startDate, setStartDate] = useState(new Date());
-  const [apiInfo, setApiInfo] = useState(null);
+function SummaryBalance({ startDate, setStartDate, apiInfo }) {
   const datePickerRef = useRef(null);
 
   const handleIconClick = () => {
     datePickerRef.current.setOpen(true);
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const formattedDate = startDate.toISOString().slice(0, 7);
-        const response = await fetch(
-          `https://buddy-backend-silk.vercel.app/custos?data=${formattedDate}`
-        );
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const result = await response.json();
-        console.log(result);
-        setApiInfo(result);
-      } catch (error) {
-        console.error("Failed to fetch data:", error);
-      }
-    };
-
-    fetchData();
-  }, [startDate]);
 
   return (
     <div className="flex flex-col justify-center pb-4 ">
