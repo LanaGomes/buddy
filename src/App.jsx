@@ -9,8 +9,6 @@ function App() {
     <>
       <div className=" bg-white-almostWhite ">
         <ExpensesGoalsLogic />
-        {/* <SummaryBalance />
-        <ExpenseSimulation /> */}
       </div>
     </>
   );
