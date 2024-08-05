@@ -14,7 +14,7 @@ const ModalSimulation = ({
   return (
     <div className="fixed inset-0  text-blue-2 bg-blue-2 bg-opacity-80 flex items-center justify-center">
       <div className="bg-white-hotWhite p-6 rounded-md shadow-md text-center">
-        <h2 className="text-xl font-bold mb-4">Resultado</h2>
+        <h2 className="text-xl  font-bold mb-4">Resultado</h2>
         <p className="mb-4">{resultMessage}</p>
         <p className="mb-4 font-semibold">Você deseja adicionar este gasto?</p>
         <div className="space-x-4">
