@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import calendarLogo from "../Images/calendarLogo.png";
 import ResultCard from "./ResultCard";
+import loadingGif from "../Images/loadingGif.gif";
 
 function SummaryBalance({ startDate, setStartDate, apiInfo }) {
   const datePickerRef = useRef(null);
@@ -15,12 +16,18 @@ function SummaryBalance({ startDate, setStartDate, apiInfo }) {
     <div className="flex flex-col justify-center pb-4 ">
       <main className=" bg-white-whistestWhite flex justify-around text-3xl p-4 mb-6 mx-12 mt-12 items-center border-2 border-blue-2 rounded ">
         <div className="flex justify-center w-1/2 cursor-pointer ">
-          <img
-            className="h-10 opacity-60"
-            src={calendarLogo}
-            alt="Icone de calendario"
-            onClick={handleIconClick}
-          />
+          {apiInfo === null ? (
+            <div className="flex justify-center items-center">
+              <img src={loadingGif} alt="loading"></img>
+            </div>
+          ) : (
+            <img
+              className="h-10 opacity-60"
+              src={calendarLogo}
+              alt="Icone de calendario"
+              onClick={handleIconClick}
+            />
+          )}
         </div>
         <DatePicker
           ref={datePickerRef}
@@ -33,11 +40,27 @@ function SummaryBalance({ startDate, setStartDate, apiInfo }) {
       </main>
       <section className="flex  gap-6 mx-6 mb-8">
         <ResultCard
-          saldoFinal={"R$" + apiInfo?.total_mensal ?? "N/A"}
+          saldoFinal={
+            apiInfo === null ? (
+              <div className="flex justify-center items-center">
+                <img src={loadingGif} alt="loading"></img>
+              </div>
+            ) : (
+              "R$" + apiInfo?.total_mensal
+            )
+          }
           totalTipoGasto="Total Cartão"
         />
         <ResultCard
-          saldoFinal={"R$" + apiInfo?.limite ?? "N/A"}
+          saldoFinal={
+            apiInfo === null ? (
+              <div className="flex justify-center items-center">
+                <img src={loadingGif} alt="Loading..." />
+              </div>
+            ) : (
+              "R$" + apiInfo?.limite
+            )
+          }
           totalTipoGasto="Saldo Limite"
         />
       </section>
