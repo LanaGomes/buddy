@@ -1,4 +1,3 @@
-import pigLogo from "../Images/pigLogo.png";
 import menuLogo from "../Images/menuSanduichLogo.png";
 
 function NavBar() {
