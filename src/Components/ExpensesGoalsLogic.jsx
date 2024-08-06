@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SummaryBalance from "./SummaryBalance";
+import ExpenseSimulation from "./ExpenseSimulation";
 
 function ExpensesGoalsLogic() {
   const [startDate, setStartDate] = useState(new Date());
@@ -27,11 +28,14 @@ function ExpensesGoalsLogic() {
   }, [startDate]);
 
   return (
-    <SummaryBalance
-      startDate={startDate}
-      setStartDate={setStartDate}
-      apiInfo={apiInfo}
-    />
+    <>
+      <SummaryBalance
+        startDate={startDate}
+        setStartDate={setStartDate}
+        apiInfo={apiInfo}
+      />
+      <ExpenseSimulation apiInfo={apiInfo} />
+    </>
   );
 }
 
