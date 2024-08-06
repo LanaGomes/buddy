@@ -6,9 +6,13 @@ export default {
       blue: {
         1: "#224667",
         2: "#1A2437",
+        3: "#E0F2F5",
       },
 
-      red: "#DD466A",
+      red: {
+        strong: "#DD466A",
+        light: "#EFD7D7",
+      },
 
       darkgreen: "#3B7E7E",
       radiantGreen: "#41EBAE",
