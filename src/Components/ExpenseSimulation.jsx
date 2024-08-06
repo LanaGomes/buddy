@@ -2,15 +2,53 @@ import { useState } from "react";
 import Button from "./Button";
 import ModalSimulation from "./ModalSimulation";
 
-function ExpenseSimulation() {
+function ExpenseSimulation({ apiInfo }) {
   const [showModal, setShowModal] = useState(false);
   const [resultMessage, setResultMessage] = useState("");
-  const [checkBoxClicked, setCheckBoxClicked] = useState("true");
+  const [checkBoxClicked, setCheckBoxClicked] = useState(true);
   const [addedExpenseSimulation, setAddedExpenseSimulation] = useState("");
+  const [isAddedExpenseSimulationEmpty, setIsAddedExpenseSimulationEmpty] =
+    useState(false);
+  const [expenseType, setExpenseType] = useState("");
+  const [isExpenseTypeEmpty, setIsExpenseTypeEmpty] = useState(false);
 
   const handleButtonClick = () => {
+    let valid = true;
+
+    if (addedExpenseSimulation === "") {
+      setIsAddedExpenseSimulationEmpty(true);
+      valid = false;
+    } else {
+      setIsAddedExpenseSimulationEmpty(false);
+    }
+
+    if (expenseType === "") {
+      setIsExpenseTypeEmpty(true);
+      valid = false;
+    } else {
+      setIsExpenseTypeEmpty(false);
+    }
+
+    if (!valid) {
+      alert("Por favor, preencha todos os campos obrigatórios");
+      return;
+    }
+
+    const formatedAddedExpenseSimulation = parseFloat(
+      addedExpenseSimulation.replace(",", ".")
+    );
+
     const addedExpenseResult =
-      addedExpenseSimulation - setResultMessage("Resultado da simulação");
+      formatedAddedExpenseSimulation + apiInfo.total_mensal;
+
+    setResultMessage(
+      <>
+        TOTAL CARTÃO previsto : R$
+        {addedExpenseResult.toFixed(2).replace(".", ",")} <br /> <br />
+        SALDO LIMITE previsto : R$
+        {apiInfo.limite - formatedAddedExpenseSimulation}
+      </>
+    );
     setShowModal(true);
   };
 
@@ -51,18 +89,29 @@ function ExpenseSimulation() {
         <label className="w-full text-white-whistestWhite">
           Valor Total Gasto
           <input
+            placeholder="Insira apenas números"
+            type="number"
             onChange={(e) => {
               setAddedExpenseSimulation(e.target.value);
             }}
-            className=" text-blue-2 m-3 p-1 rounded w-1/2 "
-            required
+            className={`text-blue-2 m-3 p-1 rounded w-1/2 ${
+              isAddedExpenseSimulationEmpty
+                ? "bg-red-light border-2  border-red-strong"
+                : ""
+            }`}
           ></input>
         </label>
         <label className="w-full text-white-whistestWhite">
           Tipo de Gasto
           <input
-            className=" text-blue-2 m-3 p-1 rounded w-1/2 "
-            required
+            onChange={(e) => {
+              setExpenseType(e.target.value);
+            }}
+            className={`text-blue-2 m-3 p-1 rounded w-1/2 ${
+              isExpenseTypeEmpty
+                ? "bg-red-light border-2 border-red-strong"
+                : ""
+            }`}
           ></input>
         </label>
         <div className="flex justify-around p-2 mt-2 ">
