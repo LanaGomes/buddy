@@ -81,60 +81,65 @@ function ExpenseSimulation({ apiInfo }) {
   };
 
   return (
-    <div className=" bg-blue-1 max-h-full text-base p-2 h-full ">
-      <header className="text-2xl text-white-whistestWhite font-semibold py-2 ">
-        Simular (adição gasto)
+    <div className="bg-blue-1 min-h-screen flex flex-col items-center justify-center p-4  text-white-whistestWhite ">
+      <header className="text-2xl font-semibold mb-4">
+        Simular Adição de Gasto
       </header>
-      <form className="p- flex flex-col text-center">
-        <label className="w-full text-white-whistestWhite">
-          Valor Total Gasto
+      <form className="bg-white rounded px-8 pt-6 pb-8 mb-4 w-full max-w-lg">
+        <div className="mb-4">
+          <label className="block  text-sm font-bold mb-2">
+            Valor Total Gasto
+          </label>
           <input
-            placeholder="Insira apenas números"
             type="number"
+            placeholder="Insira apenas números"
             onChange={(e) => {
               setAddedExpenseSimulation(e.target.value);
             }}
-            className={`text-blue-2 m-3 p-1 rounded w-1/2 ${
+            className={`shadow appearance-none border rounded w-full py-2 px-3  text-blue-2  leading-tight focus:outline-none focus:shadow-outline ${
               isAddedExpenseSimulationEmpty
-                ? "bg-red-light border-2  border-red-strong"
+                ? "border-red-strong bg-red-light"
                 : ""
             }`}
-          ></input>
-        </label>
-        <label className="w-full text-white-whistestWhite">
-          Tipo de Gasto
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Tipo de Gasto
+          </label>
           <input
+            type="text"
             onChange={(e) => {
               setExpenseType(e.target.value);
             }}
-            className={`text-blue-2 m-3 p-1 rounded w-1/2 ${
-              isExpenseTypeEmpty
-                ? "bg-red-light border-2 border-red-strong"
-                : ""
+            className={`shadow appearance-none border rounded w-full py-2 px-3  text-blue-2  leading-tight focus:outline-none focus:shadow-outline ${
+              isExpenseTypeEmpty ? "border-red-strong bg-red-light" : ""
             }`}
-          ></input>
-        </label>
-        <div className="flex justify-around p-2 mt-2 ">
-          <label className="text-white-whistestWhite flex items-center  ">
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block  text-sm font-bold mb-2 ">
             Valor parcelado?
             <input
+              h
               onClick={handleCheckBox}
-              className="p-1 h-10 w-10 ml-2 "
-              required
+              className="ml-2 leading-tight h-8 w-8"
               type="checkbox"
-            ></input>
+            />
           </label>
-          <div className={checkBoxClicked ? "hidden" : ""}>
-            <label className=" text-white-whistestWhite flex items-center ">
-              Quantidade de parcelas?
-              <select className=" text-blue-2 w-15 p-2 mx-3 rounded focus:outline-none sm:text-sm">
-                {gerarOpcoes()}
-              </select>
+          <div className={checkBoxClicked ? "hidden" : "mt-2"}>
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Quantidade de parcelas
             </label>
+            <select className="shadow appearance-none border rounded w-full py-2 px-3 text-blue leading-tight focus:outline-none focus:shadow-outline">
+              {gerarOpcoes()}
+            </select>
           </div>
         </div>
+        <div className="flex items-center justify-center">
+          <Button buttonText="Simular" onClick={handleButtonClick} />
+        </div>
       </form>
-      <Button buttonText="Simular" onClick={handleButtonClick} />
       <ModalSimulation
         show={showModal}
         handleClose={() => setShowModal(false)}
@@ -145,4 +150,5 @@ function ExpenseSimulation({ apiInfo }) {
     </div>
   );
 }
+
 export default ExpenseSimulation;
