@@ -7,11 +7,14 @@ export default {
         1: "#224667",
         2: "#1A2437",
         3: "#E0F2F5",
+        4: "#3B427E",
       },
 
       red: {
         strong: "#DD466A",
         light: "#EFD7D7",
+        marsala: "#7E3B63",
+        purple: "#5D3B7E",
       },
 
       darkgreen: "#3B7E7E",
@@ -22,6 +25,8 @@ export default {
         whistestWhite: "#FFFFFF",
         hotWhite: "#F6EEEB",
       },
+
+      gray: { light: "#C3C3C3" },
     },
 
     extend: {
