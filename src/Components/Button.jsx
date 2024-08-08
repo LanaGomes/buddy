@@ -1,9 +1,9 @@
-function Button({ buttonText, onClick }) {
+function Button({ buttonText, onClick, aditionalClassNames }) {
   return (
     <div>
       <button
         onClick={onClick}
-        className="text-xl py-5 px-9 mt-5 mb-2 bg-radiantGreen text-blue-2  rounded-full"
+        className={`${aditionalClassNames} text-base py-3 w-24 mt-4 mb-2 rounded-full`}
       >
         {buttonText}
       </button>
