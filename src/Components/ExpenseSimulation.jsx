@@ -137,7 +137,11 @@ function ExpenseSimulation({ apiInfo }) {
           </div>
         </div>
         <div className="flex items-center justify-center">
-          <Button buttonText="Simular" onClick={handleButtonClick} />
+          <Button
+            buttonText="Simular"
+            onClick={handleButtonClick}
+            aditionalClassNames="bg-radiantGreen text-blue-2"
+          />
         </div>
       </form>
       <ModalSimulation
