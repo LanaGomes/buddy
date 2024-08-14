@@ -43,7 +43,7 @@ const GeneralSummary = () => {
 
   return (
     <>
-      <header className="py-2 bg-darkgreen text-white-whistestWhite font-semibold">
+      <header className="py-2 bg-blue-1 text-2xl text-white-whistestWhite font-semibold">
         Resumo Geral
       </header>{" "}
       <div className="overflow-x-auto drop-shadow-xl ">
@@ -57,7 +57,7 @@ const GeneralSummary = () => {
               {data.map((date) => (
                 <th
                   key={date.monthYear}
-                  className=" border-l-4 border-darkgreen px-6 py-1 text-center text-lg font-medium text-blue-1 uppercase tracking-wider"
+                  className=" border-l-4 borde-blue-1 px-6 py-1 text-center text-lg font-medium text-blue-1 uppercase tracking-wider"
                 >
                   {date.monthYear}
                 </th>
