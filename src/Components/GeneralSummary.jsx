@@ -57,7 +57,7 @@ const GeneralSummary = () => {
               {data.map((date) => (
                 <th
                   key={date.monthYear}
-                  className=" border-l-4 borde-blue-1 px-6 py-1 text-center text-lg font-medium text-blue-1 uppercase tracking-wider"
+                  className=" border-l-4 border-blue-1 px-6 py-1 text-center text-lg font-medium text-blue-1 uppercase tracking-wider"
                 >
                   {date.monthYear}
                 </th>
