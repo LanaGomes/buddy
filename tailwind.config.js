@@ -15,6 +15,7 @@ export default {
         light: "#EFD7D7",
         marsala: "#7E3B63",
         purple: "#5D3B7E",
+        marsalaDarker: "#431F35",
       },
 
       darkgreen: "#3B7E7E",
@@ -26,7 +27,7 @@ export default {
         hotWhite: "#F6EEEB",
       },
 
-      gray: { light: "#C3C3C3" },
+      gray: { light: "#C3C3C3", medium: "#777777" },
     },
 
     extend: {
