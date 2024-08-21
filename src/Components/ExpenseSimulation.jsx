@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./Button";
+
 import ModalSimulation from "./ModalSimulation";
 
 function ExpenseSimulation({ apiInfo }) {
@@ -137,11 +137,9 @@ function ExpenseSimulation({ apiInfo }) {
           </div>
         </div>
         <div className="flex items-center justify-center">
-          <Button
-            buttonText="Simular"
-            onClick={handleButtonClick}
-            aditionalClassNames="bg-radiantGreen text-blue-2"
-          />
+          <button className="text-base py-3 w-24 mt-4 mb-2 rounded-full bg-radiantGreen text-blue-2">
+            Simular
+          </button>
         </div>
       </form>
       <ModalSimulation
