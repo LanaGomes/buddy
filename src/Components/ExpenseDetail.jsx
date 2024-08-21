@@ -3,6 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import calendarLogo from "../Images/calendarLogo.png";
 import { useState, useEffect, useRef } from "react";
 import loadingGif from "../Images/loadingGif.gif";
+import deleteLogo from "../Images/deleteLogo.png";
 
 function ExpenseDetail() {
   const [startDate, setStartDate] = useState(new Date());
@@ -138,7 +139,7 @@ function ExpenseDetail() {
             onClick={handleOnclickTab}
             className={`text-base text-white-whistestWhite py-3 w-full mt-4 ${
               clickedButtonValue === "parcelados"
-                ? "bg-red-marsala border-t-2 border-red-marsalaDarker"
+                ? "bg-red-marsala border-y-2 border-red-marsalaDarker"
                 : "bg-gray-medium  text-gray-light"
             }`}
           >
@@ -149,7 +150,7 @@ function ExpenseDetail() {
             onClick={handleOnclickTab}
             className={`text-base text-white-whistestWhite w-full py-3 mt-4  ${
               clickedButtonValue === "recorrentes"
-                ? "bg-red-purple border-t-2 border-red-marsalaDarker"
+                ? "bg-red-purple border-y-2 border-red-marsalaDarker"
                 : "bg-gray-medium  text-gray-light"
             }`}
           >
@@ -160,7 +161,7 @@ function ExpenseDetail() {
             onClick={handleOnclickTab}
             className={`text-base text-white-whistestWhite py-3 w-full mt-4   ${
               clickedButtonValue === "aVista"
-                ? "bg-blue-4 border-t-2 border-blue-2"
+                ? "bg-blue-4 border-y-2 border-blue-2"
                 : "bg-gray-medium text-gray-light"
             }`}
           >
@@ -177,6 +178,7 @@ function ExpenseDetail() {
                   <th className="p-1">Parcela</th>
                   <th className="p-1">Última Parcela em</th>
                   <th className="p-1">Tipo de Gasto</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -185,7 +187,10 @@ function ExpenseDetail() {
                     <td>{item.valorParcela}</td>
                     <td>{item.parcelaNum}</td>
                     <td>{item.ultimaParcelaEm}</td>
-                    <td>{item.tipoGasto}</td>
+                    <td className="flex justify-center">
+                      {item.tipoGasto}{" "}
+                      <img className="h-10w-10" src={deleteLogo}></img>
+                    </td>
                   </tr>
                 ))}
               </tbody>
