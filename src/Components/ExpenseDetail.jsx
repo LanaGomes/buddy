@@ -4,6 +4,7 @@ import calendarLogo from "../Images/calendarLogo.png";
 import { useState, useEffect, useRef } from "react";
 import loadingGif from "../Images/loadingGif.gif";
 import deleteLogo from "../Images/deleteLogo.png";
+import editLogo from "../Images/editLogo.png";
 
 function ExpenseDetail() {
   const [startDate, setStartDate] = useState(new Date());
@@ -178,7 +179,7 @@ function ExpenseDetail() {
                   <th className="p-1">Parcela</th>
                   <th className="p-1">Última Parcela em</th>
                   <th className="p-1">Tipo de Gasto</th>
-                  <th></th>
+                  <th className="p-1">Ações</th>
                 </tr>
               </thead>
               <tbody>
@@ -187,9 +188,18 @@ function ExpenseDetail() {
                     <td>{item.valorParcela}</td>
                     <td>{item.parcelaNum}</td>
                     <td>{item.ultimaParcelaEm}</td>
-                    <td className="flex justify-center">
-                      {item.tipoGasto}{" "}
-                      <img className="h-10w-10" src={deleteLogo}></img>
+                    <td className=" items-center">{item.tipoGasto} </td>
+                    <td className=" p-1 flex items-center justify-center  space-x-2">
+                      <img
+                        className="w-5 h-5 cursor-pointer"
+                        src={editLogo}
+                        alt="Editar"
+                      />
+                      <img
+                        className="w-5 h-5 cursor-pointer"
+                        src={deleteLogo}
+                        alt="Deletar"
+                      />
                     </td>
                   </tr>
                 ))}
@@ -203,6 +213,7 @@ function ExpenseDetail() {
                 <tr className="text-white-whistestWhite divide-x-2">
                   <th className="p-1">Valor Recorrente</th>
                   <th className="p-1">Tipo de Gasto</th>
+                  <th className="p-1">Ações</th>
                 </tr>
               </thead>
               <tbody>
@@ -210,6 +221,18 @@ function ExpenseDetail() {
                   <tr key={item.id}>
                     <td>{item.valorRecorrente}</td>
                     <td>{item.tipoGasto}</td>
+                    <td className="p-1 flex justify-center items-center space-x-2">
+                      <img
+                        className="w-5 h-5 cursor-pointer"
+                        src={editLogo}
+                        alt="Editar"
+                      />
+                      <img
+                        className="w-5 h-5 cursor-pointer"
+                        src={deleteLogo}
+                        alt="Deletar"
+                      />
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -222,6 +245,7 @@ function ExpenseDetail() {
                 <tr className="text-white-whistestWhite divide-x-2">
                   <th className="p-1">Data</th>
                   <th className="p-1">Tipo de Gasto</th>
+                  <th className="p-1">Ações</th>
                 </tr>
               </thead>
               <tbody>
@@ -229,6 +253,18 @@ function ExpenseDetail() {
                   <tr key={item.id}>
                     <td>{item.valorAvista}</td>
                     <td>{item.tipoGasto}</td>
+                    <td className="p-1 flex justify-center items-center space-x-2">
+                      <img
+                        className="w-5 h-5 cursor-pointer"
+                        src={editLogo}
+                        alt="Editar"
+                      />
+                      <img
+                        className="w-5 h-5 cursor-pointer"
+                        src={deleteLogo}
+                        alt="Deletar"
+                      />
+                    </td>
                   </tr>
                 ))}
               </tbody>
