@@ -4,7 +4,7 @@ import ExpenseSimulation from "./ExpenseSimulation";
 
 function ExpensesGoalsLogic() {
   const [startDate, setStartDate] = useState(new Date());
-  const [apiInfo, setApiInfo] = useState(null);
+  const [apiInfo, setApiInfo] = useState();
 
   useEffect(() => {
     const fetchData = async () => {

@@ -21,6 +21,8 @@ function ExpenseDetail() {
     setClickedButtonValue(e.target.value);
   };
 
+  const handleDeleteItem = () => {};
+
   const conjuntoParcelado = [
     {
       id: 1,
@@ -199,6 +201,7 @@ function ExpenseDetail() {
                         className="w-5 h-5 cursor-pointer"
                         src={deleteLogo}
                         alt="Deletar"
+                        onClick={handleDeleteItem}
                       />
                     </td>
                   </tr>
@@ -272,6 +275,13 @@ function ExpenseDetail() {
           )}
         </section>
       </section>
+      <ModalSimulation
+        show={showModal}
+        handleClose={() => setShowModal(false)}
+        handleYes={handleYes}
+        handleNo={handleNo}
+        resultMessage={resultMessage}
+      />
     </div>
   );
 }

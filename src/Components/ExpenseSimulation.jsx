@@ -85,7 +85,13 @@ function ExpenseSimulation({ apiInfo }) {
       <header className="text-2xl font-semibold mb-4">
         Simular Adição de Gasto
       </header>
-      <form className="bg-white rounded px-8 pt-6 pb-8 mb-4 w-full max-w-lg">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleButtonClick();
+        }}
+        className="bg-white rounded px-8 pt-6 pb-8 mb-4 w-full max-w-lg"
+      >
         <div className="mb-4">
           <label className="block  text-sm font-bold mb-2">
             Valor Total Gasto
@@ -121,7 +127,6 @@ function ExpenseSimulation({ apiInfo }) {
           <label className="block  text-sm font-bold mb-2 ">
             Valor parcelado?
             <input
-              h
               onClick={handleCheckBox}
               className="ml-2 leading-tight h-8 w-8"
               type="checkbox"
@@ -137,7 +142,10 @@ function ExpenseSimulation({ apiInfo }) {
           </div>
         </div>
         <div className="flex items-center justify-center">
-          <button className="text-base py-3 w-24 mt-4 mb-2 rounded-full bg-radiantGreen text-blue-2">
+          <button
+            type="submit"
+            className="text-base py-3 w-24 mt-4 mb-2 rounded-full bg-radiantGreen text-blue-2"
+          >
             Simular
           </button>
         </div>
